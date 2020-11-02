@@ -25,3 +25,24 @@ done
 
 echo "Display Array: "
 echo ${dict2Array[@]}
+
+size=${#dict2Array[@]}
+echo $size
+
+for (( i=0; i<${#dict2Array[@]}; i++ ))
+do
+        for(( j=0; j<${#dict2Array[@]}-i-1; j++ ))
+        do
+                if(( ( ${dict2Array[j]} < ${dict2Array[$((j+1))]} ) ))
+                then
+                        temp=${dict2Array[j]}
+                        dict2Array[$j]=${dict2Array[$((j+1))]}
+                        dict2Array[$((j+1))]=$temp
+                fi
+
+        done
+done
+
+echo "Display Sorted Array in Descending Order: "
+echo ${dict2Array[@]}
+
