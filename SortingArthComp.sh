@@ -33,7 +33,7 @@ for (( i=0; i<${#dict2Array[@]}; i++ ))
 do
         for(( j=0; j<${#dict2Array[@]}-i-1; j++ ))
         do
-                if(( ( ${dict2Array[j]} < ${dict2Array[$((j+1))]} ) ))
+                if(( ( ${dict2Array[j]} > ${dict2Array[$((j+1))]} ) ))
                 then
                         temp=${dict2Array[j]}
                         dict2Array[$j]=${dict2Array[$((j+1))]}
@@ -43,6 +43,6 @@ do
         done
 done
 
-echo "Display Sorted Array in Descending Order: "
+echo "Display Sorted Array in Ascending Order: "
 echo ${dict2Array[@]}
 
